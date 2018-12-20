@@ -8,10 +8,10 @@ export default props =>(
             <MenuItem path='#/billingCycle' label='Ciclo de Pagemento' icon='usd'/>
         </MenuTree>
         <MenuItem path='#/about' label='About' icon='info'/>
-        <MenuTree label='Contats' icon='envelope'>
-            <MenuItem path='#/billingCycle' target='_black' label='Facebook' icon='facebook'/>
-            <MenuItem path='#/billingCycle' target='_black' label='Instagram' icon='instagram'/>
-            <MenuItem path='#/billingCycle' target='_black' label='LinkedIn' icon='linkedin'/>
+        <MenuTree label='Contacts' icon='envelope'>
+            <MenuItem path='https://www.facebook.com/anderson.pereirasantanna' target='_black' label='Facebook' icon='facebook'/>
+            <MenuItem path='' target='_black' label='Instagram' icon='instagram'/>
+            <MenuItem path='https://www.linkedin.com/in/anderson-sant-anna/' target='_black' label='LinkedIn' icon='linkedin'/>
             <MenuItem path='https://github.com/andersonSantanna' target='_black' label='Github' icon='github'/>
         </MenuTree>
     </ul>
