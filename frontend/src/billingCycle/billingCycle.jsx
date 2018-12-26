@@ -4,9 +4,10 @@ import ContentHeader from '../common/template/contentHeader'
 import Content from '../common/template/content'
 import Tabs from '../common/tab/tabs'
 import TabsHeader from '../common/tab/tabsHeader'
-import {TabHeader} from '../common/tab/tabHeader'
+import TabHeader from '../common/tab/tabHeader'
 import TabsContent from '../common/tab/tabsContent'
-export class BillingCycle extends Component{
+
+export default class BillingCycle extends Component{
     render(){
         return(
             <div>
@@ -20,7 +21,7 @@ export class BillingCycle extends Component{
                             <TabHeader label='Excluir' icon='trash-o' target='tabDelete'  />
                         </TabsHeader>
                         <TabsContent>
-                            
+
                         </TabsContent>
                     </Tabs>
                 </Content>
@@ -29,3 +30,4 @@ export class BillingCycle extends Component{
 
     }
 } 
+
