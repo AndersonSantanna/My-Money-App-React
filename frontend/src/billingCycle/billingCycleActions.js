@@ -4,6 +4,7 @@ import {reset as resetForm, initialize} from 'redux-form'
 import { showTabs, selectTab} from '../common/tab/tabActions'
 
 const BASE_URL = 'http://localhost:3003/api'
+const INITIAL_VALUES = {}
 
 export function getList() {
     const request = axios.get(`${BASE_URL}/billingCycles`)
@@ -14,16 +15,19 @@ export function getList() {
 }
 
 export function create(values) {
+    return submit(values, 'post')
+}
+
+export function update(values){
+    return submit(values, 'put')
+}
+
+function submit(values, method){
     return dispatch =>{
-        axios.post(`${BASE_URL}/billingCycles`, values)
+        axios[method](`${BASE_URL}/billingCycles/${values._id ? values._id : ''}`, values)
         .then(resp => {
             toastr.success('Sucesso', 'Operação realizada com sucesso')
-            dispatch([
-                resetForm('billingCycleForm'),
-                getList(),
-                selectTab('tabList'),
-                showTabs('tabList', 'tabCreate')
-            ])
+            dispatch(init())
         })
         .catch(e =>{
             //nao foi encontrado o metodo forEach 
@@ -40,7 +44,16 @@ export function showUpdate(billingCycle) {
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
         initialize('BillingCycleForm', billingCycle),
-        console.log(billingCycle)
         
     ]
 }
+
+export function init() {
+    return[
+        showTabs('tabList', 'tabCreate'),
+        selectTab('tabList'),
+        getList(),
+        initialize('BillingCycleForm', INITIAL_VALUES)
+    ]
+}
+
