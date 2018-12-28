@@ -7,7 +7,7 @@ import Grid from '../common/layout/grid'
 import Input from '../common/form/input'
 
 
-class CredtList extends Component{
+class itemList extends Component{
     
     add(index, item={}){
         if(!this.props.readOnly){
@@ -26,12 +26,12 @@ class CredtList extends Component{
         return list.map((item, index) =>(
             <tr key={index}>
                 <td>
-                    <Field name={`credits[${index}.name]`} component={Input}
+                    <Field name={`${this.props.field}[${index}.name]`} component={Input}
                     placeholder='Informe o nome' readOnly={this.props.readOnly}  
                     />
                 </td>
                 <td>
-                    <Field name={`credits[${index}.value]`} component={Input}
+                    <Field name={`${this.props.field}[${index}.value]`} component={Input}
                     placeholder='Informe o valor' readOnly={this.props.readOnly}
                     />
                 </td>
@@ -54,7 +54,7 @@ class CredtList extends Component{
         return(
             <Grid cols={this.props.cols}>
                 <fieldset>
-                    <legend>Credit</legend>
+                    <legend>{this.props.legend}</legend>
                     <table className='table'>
                         <thead>
                             <tr>
@@ -73,4 +73,4 @@ class CredtList extends Component{
     }
 }
 const mapDispatchTpProps = dispatch=> bindActionCreators({arrayInsert, arrayRemove}, dispatch)
-export default connect(null, mapDispatchTpProps)(CredtList)
+export default connect(null, mapDispatchTpProps)(itemList)
