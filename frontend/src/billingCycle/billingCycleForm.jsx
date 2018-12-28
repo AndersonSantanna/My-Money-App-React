@@ -21,8 +21,8 @@ class BillingCycleForm extends Component{
                         label='Ano' cols='12 4' placeholder='Informe o Ano'/>
                 </div>
                 <div className='box-footer'>
-                    <button type='submit' className='btn btn-primary'>submit</button>
-                    <button type='button' className='btn btn-danger' onClick={this.props.init}>Cancel</button>
+                    <button type='submit' className={`btn btn-${this.props.colorButton}`}>{this.props.button}</button>
+                    <button type='button' className='btn btn-default' onClick={this.props.init}>Cancel</button>
                 </div>    
             </form>
         )
