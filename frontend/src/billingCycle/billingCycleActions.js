@@ -22,6 +22,10 @@ export function update(values){
     return submit(values, 'put')
 }
 
+export function remove(values) {
+    return submit(values, 'delete')
+}
+
 function submit(values, method){
     return dispatch =>{
         axios[method](`${BASE_URL}/billingCycles/${values._id ? values._id : ''}`, values)
@@ -32,9 +36,8 @@ function submit(values, method){
         .catch(e =>{
             //nao foi encontrado o metodo forEach 
             //e.response.data.errors.forEach(error=>toastr.error('Erro', error))
-                
+    
             toastr.error('Erro', 'Preencha todos os campos ou tente mais tarde!')
-            
         })
     }
 }
@@ -44,10 +47,16 @@ export function showUpdate(billingCycle) {
         showTabs('tabUpdate'),
         selectTab('tabUpdate'),
         initialize('BillingCycleForm', billingCycle),
+    ]
+}
+export function showDelete(billingCycle) {
+    return[
+        showTabs('tabDelete'),
+        selectTab('tabDelete'),
+        initialize('BillingCycleForm', billingCycle),
         
     ]
 }
-
 export function init() {
     return[
         showTabs('tabList', 'tabCreate'),
