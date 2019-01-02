@@ -12,6 +12,10 @@ export default props =>(
                 <b>My</b> Money
             </span>
         </a>
+        <nav className='navbar navbar-static-top'>
+            <a href="" className='sidebar-toggle' data-toggle='offcanvas'></a>
+            <Navbar/>
+        </nav>
         
         
 
