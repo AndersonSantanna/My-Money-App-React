@@ -1,8 +1,10 @@
 const userKey = '_mymoney_user'
-const INITIAL_STATE ={
-    user: {name:'teste', email:'aluno@gmail.com'}, //JSON.parse(localStorage.getItem(userKey)),
+
+const INITIAL_STATE = {
+    user: JSON.parse(localStorage.getItem(userKey)),
     validToken: false
 }
+
 export default (state = INITIAL_STATE, action) =>{
     switch(action.type){
         case 'TOKEN_VALIDATED':

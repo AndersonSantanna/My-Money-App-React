@@ -7,6 +7,7 @@ class Navbar extends Component{
     constructor(props){
         super(props)
         this.state = {open: false}
+        
     }
 
     changeOpen(){
@@ -14,7 +15,7 @@ class Navbar extends Component{
     }
 
     render(){
-        const {name, email} = this.props.user        
+        const {name, email} = this.props.user
         return(
             <div className="navbar-custom-menu">
                 <ul className="nav navbar-nav">
